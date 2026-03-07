@@ -1,6 +1,6 @@
 # Transcribe Podcast Episodes
 
-Script for Transcribing Apple Podcast Episodes
+Script for transcribing Apple Podcasts episodes
 
 ## Requirement
 
