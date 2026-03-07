@@ -23,3 +23,7 @@ curl -LO https://huggingface.co/ggerganov/whisper.cpp/resolve/main/ggml-small.en
 
 > Launch the Podcasts app to cache the most recent episode.
 
+## Script
+
+(In the process of generalizing it, but basically the script will locate the episode in an SQLITE database and transcribe the episode using the Whisper model. Script has additional features, too.)
+
