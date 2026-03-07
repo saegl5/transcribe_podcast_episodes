@@ -25,5 +25,5 @@ curl -LO https://huggingface.co/ggerganov/whisper.cpp/resolve/main/ggml-small.en
 
 ## Script
 
-(In the process of generalizing it, but basically the script will locate the episode in an SQLITE database and transcribe the episode using the Whisper model. Script has additional features, too.)
+(In the process of generalizing it, but basically the script will locate the episode in an SQLite database and transcribe the episode using the Whisper model. Script has additional features, too.)
 
