@@ -17,9 +17,10 @@ brew install whisper-cpp ffmpeg
 Download Whisper model: (example)
 
 ```
-mkdir -p $HOME/whisper-models && cd $_
+mkdir -p $HOME/whisper-models
 
-curl -LO https://huggingface.co/ggerganov/whisper.cpp/resolve/main/ggml-small.en.bin
+curl -L https://huggingface.co/ggerganov/whisper.cpp/resolve/main/ggml-small.en.bin \
+    -o $HOME/whisper-models/ggml-small.en.bin
 ```
 (Consult [ggerganov/whisper.cpp &#128279;](https://huggingface.co/ggerganov/whisper.cpp/tree/main) for additional models.)
 
