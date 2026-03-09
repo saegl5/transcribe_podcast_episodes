@@ -45,9 +45,9 @@ export GGML_METAL_PATH_RESOURCES="$(brew --prefix whisper-cpp)/share/whisper-cpp
 whisper-cli \
     --model $HOME/whisper-models/ggml-small.en.bin \
     --file $PODCASTS/$EPISODE \
-    --output-txt
+    --output-txt \
+    --no-timestamps
 
 mv $PODCASTS/$EPISODE.txt .
-
 ```
 
