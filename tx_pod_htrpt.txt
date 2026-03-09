@@ -1,21 +1,12 @@
 cd $HOME/Development/stock\ analysis/seven\ latest\ transcripts && \
 
 Halftime Report
-$( 7)
 
-date=($(sqlite3 "$SQLITE/MTLibrary.sqlite" "SELECT strftime('%m-%d', e.ZPUBDATE, 'unixepoch') FROM ZMTEPISODE e JOIN ZMTPODCAST p ON e.ZPODCAST = p.Z_PK WHERE p.ZTITLE LIKE '%${PODCAST_TITLE}%' ORDER BY e.ZPUBDATE DESC LIMIT 7"))
 
-for i in {1..7}; do
-    if [[ ! -f $date[$i].txt ]]; then \
-        [$i] \
-            && \
-        [$i] $HOME/Development/stock\ analysis/seven\ latest\ transcripts/$date[$i].txt
-    fi
-done
+        $HOME/Development/stock\ analysis/seven\ latest\ transcripts/$date[$i].txt
 
-for f in $HOME/Development/stock\ analysis/seven\ latest\ transcripts/*.txt; do
-    base=$(basename "$f" .txt)
-    if [[ ! " ${date[*]} " =~ " $base " ]]; then
-        rm "$f"
-    fi
-done
+
+$HOME/Development/stock\ analysis/seven\ latest\ transcripts/
+
+
+

@@ -78,3 +78,34 @@ for index in {1..7}; do
     mv $PODCASTS/$EPISODE[$index].txt .
 done
 ```
+
+### Bonus
+
+Skip episodes you have already transcribed.
+
+```
+for index in {1..7}; do
+    if [[ ! -f $EPISODE[$index].txt ]]; then \
+        whisper-cli \
+            --model $HOME/whisper-models/ggml-small.en.bin \
+            --file $PODCASTS/$EPISODE[$index] \
+            --output-txt \
+            --no-timestamps
+
+        mv $PODCASTS/$EPISODE[$index].txt .
+    fi
+done
+```
+
+Archive older episodes.
+
+```
+mkdir -p ./archived-transcripts
+
+for file in *.txt; do
+    base=$(basename $file .txt)
+    if [[ ! $EPISODE[*] =~ $base ]]; then
+        mv $file ./archived-transcripts
+    fi
+done
+```
