@@ -9,11 +9,13 @@ Script for transcribing Apple Podcasts episodes
 ## Getting Started
 
 Install packages:
+
 ```
 brew install whisper-cpp ffmpeg
 ```
 
 Download Whisper model: (example)
+
 ```
 mkdir -p $HOME/whisper-models && cd $_
 
