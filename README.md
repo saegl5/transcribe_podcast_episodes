@@ -56,6 +56,8 @@ mv $PODCASTS/$EPISODE.txt .
  
 Be patient! Once the process is completed, the text file will be located in your working directory.
 
+> If you receive an error message, "No such file or directory," or the text file is missing, check if Apple Podcasts removed the episode. If Apple Podcasts did remove it, download the episode to re-cache it.
+
 ### Optional
 
 Transcribe multiple episodes at once (e.g., seven)
