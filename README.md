@@ -110,3 +110,5 @@ for file in *.txt; do
     fi
 done
 ```
+
+For the script including optional and bonus content [click here &#128279;](./full_script.txt).
