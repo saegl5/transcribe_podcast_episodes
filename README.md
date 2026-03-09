@@ -25,5 +25,28 @@ curl -LO https://huggingface.co/ggerganov/whisper.cpp/resolve/main/ggml-small.en
 
 ## Script
 
-(In the process of generalizing it, but basically the script will locate the episode in an SQLite database and transcribe the episode using the Whisper model. Script has additional features, too.)
+```
+export PODCAST_TITLE="Apple News Today" # example
+
+export SQLITE_DB="$HOME/Library/Group Containers/243LU875E5.groups.com.apple.podcasts/Documents/MTLibrary.sqlite"
+
+export EPISODE=$(sqlite3 $SQLITE_DB \
+    "SELECT e.ZUUID || '.mp3'
+    FROM ZMTEPISODE e
+    JOIN ZMTPODCAST p ON e.ZPODCAST = p.Z_PK
+    WHERE p.ZTITLE LIKE '%${PODCAST_TITLE}%'
+    ORDER BY e.ZPUBDATE DESC
+    LIMIT 1") # store the most recent episode
+
+export PODCASTS="$HOME/Library/Group Containers/243LU875E5.groups.com.apple.podcasts/Library/Cache"
+
+export GGML_METAL_PATH_RESOURCES="$(brew --prefix whisper-cpp)/share/whisper-cpp" # use Metal for GPU acceleration
+
+whisper-cli \
+    --model $HOME/whisper-models/ggml-small.en.bin \
+    --file $PODCASTS/$EPISODE \
+    --output-txt
+
+echo "Locate $EPISODE.txt in $PODCASTS"
+```
 
