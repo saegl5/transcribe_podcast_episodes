@@ -26,7 +26,7 @@ for index in {1..7}; do
     fi
 done
 
-mkdir --parents ./archived-transcripts
+mkdir -p ./archived-transcripts
 
 for file in *.txt; do
     base=$(basename $file .txt)

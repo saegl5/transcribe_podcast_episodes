@@ -101,7 +101,7 @@ done
 Archive older episodes.
 
 ```
-mkdir --parents ./archived-transcripts
+mkdir -p ./archived-transcripts
 
 for file in *.txt; do
     base=$(basename $file .txt)
