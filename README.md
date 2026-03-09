@@ -66,13 +66,13 @@ export EPISODE=($(sqlite3 $SQLITE_DB \
     ORDER BY e.ZPUBDATE DESC
     LIMIT 7")) # store seven most recent episodes in an array
 
-for i in {1..7}; do
+for index in {1..7}; do
     whisper-cli \
         --model $HOME/whisper-models/ggml-small.en.bin \
-        --file $PODCASTS/$EPISODE[$i] \
+        --file $PODCASTS/$EPISODE[$index] \
         --output-txt \
         --no-timestamps
 
-    mv $PODCASTS/$EPISODE[$i].txt .
+    mv $PODCASTS/$EPISODE[$index].txt .
 done
 ```
