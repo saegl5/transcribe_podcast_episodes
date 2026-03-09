@@ -29,7 +29,7 @@ curl -L https://huggingface.co/ggerganov/whisper.cpp/resolve/main/ggml-small.en.
 ## Script
 
 ```
-export PODCAST_TITLE="Apple News Today" # example
+export PODCAST_TITLE="Halftime Report" # example
 
 export SQLITE_DB="$HOME/Library/Group Containers/243LU875E5.groups.com.apple.podcasts/Documents/MTLibrary.sqlite"
 
