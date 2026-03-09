@@ -47,6 +47,7 @@ whisper-cli \
     --file $PODCASTS/$EPISODE \
     --output-txt
 
-echo "Locate $EPISODE.txt in $PODCASTS"
+mv $PODCASTS/$EPISODE.txt .
+
 ```
 
