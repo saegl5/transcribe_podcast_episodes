@@ -46,8 +46,9 @@ whisper-cli \
     --model $HOME/whisper-models/ggml-small.en.bin \
     --file $PODCASTS/$EPISODE \
     --output-txt \
-    --no-timestamps && \
-    mv $PODCASTS/$EPISODE.txt .
+    --no-timestamps
+
+mv $PODCASTS/$EPISODE.txt .
 ```
  
 The text file will be located in your working directory.
