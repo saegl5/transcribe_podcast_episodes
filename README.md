@@ -52,3 +52,27 @@ mv $PODCASTS/$EPISODE.txt .
 ```
  
 The text file will be located in your working directory.
+
+### Optional
+
+Transcribe multiple episodes at once (e.g., seven)
+
+```
+export EPISODE=($(sqlite3 $SQLITE_DB \
+    "SELECT e.ZUUID || '.mp3'
+    FROM ZMTEPISODE e
+    JOIN ZMTPODCAST p ON e.ZPODCAST = p.Z_PK
+    WHERE p.ZTITLE LIKE '%${PODCAST_TITLE}%'
+    ORDER BY e.ZPUBDATE DESC
+    LIMIT 7")) # store seven most recent episodes in an array
+
+for i in {1..7}; do
+    whisper-cli \
+        --model $HOME/whisper-models/ggml-small.en.bin \
+        --file $PODCASTS/$EPISODE[$i] \
+        --output-txt \
+        --no-timestamps
+
+    mv $PODCASTS/$EPISODE[$i].txt .
+done
+```
