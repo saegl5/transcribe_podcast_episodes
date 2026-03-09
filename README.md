@@ -54,7 +54,7 @@ whisper-cli \
 mv $PODCASTS/$EPISODE.txt .
 ```
  
-The text file will be located in your working directory.
+Be patient! Once the process is completed, the text file will be located in your working directory.
 
 ### Optional
 
