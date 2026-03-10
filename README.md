@@ -58,6 +58,8 @@ Be patient! Once the process is completed, the text file will be located in your
 
 > If you receive an error message, "No such file or directory," or the text file is missing, check if Apple Podcasts removed the episode. If Apple Podcasts did remove it, download the episode to re-cache it.
 
+From here, you can utilize [ChatGPT &#128279;](https://chatgpt.com), [Claude.ai &#128279;](https://claude.ai), [Gemini &#128279;](https://gemini.google.com) or another AI assistant to summarize the transcript.
+
 ### Optional
 
 Transcribe multiple episodes at once (e.g., seven)
