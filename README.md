@@ -82,8 +82,6 @@ for index in {1..7}; do
 done
 ```
 
-### Bonus
-
 Skip episodes you have already transcribed.
 
 ```
@@ -113,4 +111,4 @@ for file in *.txt; do
 done
 ```
 
-For the script including optional and bonus content [click here &#128279;](./full_script.txt).
+For the script with optional content included, [click here &#128279;](./full_script.txt).
