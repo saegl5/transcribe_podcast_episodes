@@ -26,7 +26,7 @@ curl --location https://huggingface.co/ggerganov/whisper.cpp/resolve/main/ggml-s
 
 > Launch the Podcasts app to cache the most recent episode.
 
-## Script
+## Z Shell Script
 
 ```
 export PODCAST_TITLE="Halftime Report" # example
@@ -113,4 +113,4 @@ for file in *.txt; do
 done
 ```
 
-For the script with optional content included, [click here &#128279;](./full_script.txt).
+For the ZSH script with optional content included, [click here &#128279;](./full_script.txt).
