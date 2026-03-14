@@ -115,4 +115,4 @@ for file in *.txt; do
 done
 ```
 
-For the ZSH script with optional content included, [click here &#128279;](./full_script.txt).
+For the ZSH script with optional content included, [click here &#128279;](./full_script.sh).
