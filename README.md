@@ -28,8 +28,6 @@ curl --location https://huggingface.co/ggerganov/whisper.cpp/resolve/main/ggml-s
 
 ## Z Shell Script
 
-(See "To Do" below.)
-
 ```
 export PODCAST_TITLE="Halftime Report" # example
 
@@ -116,7 +114,3 @@ done
 ```
 
 For the ZSH script with optional content included, [click here &#128279;](./full_script.txt).
-
-## To Do
-
-Although Z Shell (ZSH) scripts and ZSH terminal commands are related, what I have posted are really ZSH terminal commands, not scripts. I will convert them soon.
