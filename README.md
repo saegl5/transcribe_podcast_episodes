@@ -56,6 +56,8 @@ whisper-cli \
 mv $PODCASTS/$EPISODE.txt .
 ```
  
+Save as, for example, "transcribe.sh" and run it: `zsh transcribe.sh`
+
 Be patient! Once the process is completed, the text file will be located in your working directory.
 
 > If you receive an error message, "No such file or directory," or the text file is missing, check if Apple Podcasts removed the episode. If Apple Podcasts did remove it, download the episode to re-cache it.
@@ -115,4 +117,4 @@ for file in *.txt; do
 done
 ```
 
-For the ZSH script with optional content included, [click here &#128279;](./full_script.sh).
+For the ZSH script with optional content included, [click here &#128279;](./full_script.sh). Save it, and run it: `zsh full_script.sh`
