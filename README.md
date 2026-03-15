@@ -88,6 +88,17 @@ for index in {1..7}; do
 done
 ```
 
+Check and ensure that episodes are cached.
+
+```
+for index in {1..7}; do
+    if [[ ! -f $PODCASTS/$EPISODE[$index] ]]; then \
+        echo 'Error: '$EPISODE[$index] ' not found! Make sure the episode is cached in the Podcasts app: Try launching the app first, otherwise download the episode to re-cache it.'
+        return
+    fi
+done
+```
+
 Skip episodes you have already transcribed.
 
 ```
