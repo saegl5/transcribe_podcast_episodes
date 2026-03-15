@@ -44,6 +44,4 @@ for file in *.txt; do
     fi
 done
 
-echo "Note: If you receive an error message, \"No such file or directory,\" or any text file is missing, check if Apple Podcasts removed any episodes. If Apple Podcasts did remove any episodes, download the episodes to re-cache them."
-
 echo "From here, you can utilize https://chatgpt.com, https://claude.ai, https://gemini.google.com or another AI assistant to summarize the transcript."

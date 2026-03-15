@@ -24,8 +24,6 @@ curl --location https://huggingface.co/ggerganov/whisper.cpp/resolve/main/ggml-s
 ```
 (Consult [ggerganov/whisper.cpp &#128279;](https://huggingface.co/ggerganov/whisper.cpp/tree/main) for additional models.)
 
-> Launch the Podcasts app to cache the most recent episode.
-
 ## Z Shell Script
 
 ```
@@ -58,11 +56,7 @@ mv $PODCASTS/$EPISODE.txt .
  
 Save as, for example, "transcribe.sh" and run it: `zsh transcribe.sh`
 
-Be patient! Once the process is completed, the text file will be located in your working directory.
-
-> If you receive an error message, "No such file or directory," or the text file is missing, check if Apple Podcasts removed the episode. If Apple Podcasts did remove it, download the episode to re-cache it.
-
-From here, you can utilize [ChatGPT &#128279;](https://chatgpt.com), [Claude.ai &#128279;](https://claude.ai), [Gemini &#128279;](https://gemini.google.com) or another AI assistant to summarize the transcript.
+Be patient! Once the process is completed, the text file will be located in your working directory. Afterword, you can utilize [ChatGPT &#128279;](https://chatgpt.com), [Claude.ai &#128279;](https://claude.ai), [Gemini &#128279;](https://gemini.google.com) or another AI assistant to summarize the transcript.
 
 ### Optional
 
