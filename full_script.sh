@@ -44,4 +44,4 @@ for file in *.txt; do
     fi
 done
 
-echo "From here, you can utilize https://chatgpt.com, https://claude.ai, https://gemini.google.com or another AI assistant to summarize the transcript."
+echo "\nDone! Now, you can utilize https://chatgpt.com, https://claude.ai, https://gemini.google.com or another AI assistant to summarize the transcript."
