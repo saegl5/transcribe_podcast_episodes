@@ -56,7 +56,7 @@ mv $PODCASTS/$EPISODE.txt .
  
 Save as, for example, "transcribe.sh" and run it: `zsh transcribe.sh`
 
-Be patient! Once the process is completed, the text file will be located in your working directory. Afterword, you can utilize [ChatGPT &#128279;](https://chatgpt.com), [Claude.ai &#128279;](https://claude.ai), [Gemini &#128279;](https://gemini.google.com) or another AI assistant to summarize the transcript.
+Be patient! Once the process is completed, the text file will be located in your working directory. Afterword, you can utilize [Claude &#128279;](https://claude.ai), [ChatGPT &#128279;](https://chatgpt.com), [Gemini &#128279;](https://gemini.google.com) or another AI assistant to summarize the transcript.
 
 ### Optional
 
