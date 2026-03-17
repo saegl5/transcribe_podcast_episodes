@@ -122,4 +122,4 @@ for file in *.txt; do
 done
 ```
 
-For the ZSH script with optional content included, [click here &#128279;](./full_script.sh). Save it, and run it: `zsh full_script.sh`
+For the ZSH script with optional content included, [click here &#128279;](./transcribe.sh). Save it, and run it: `zsh transcribe.sh`
