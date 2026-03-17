@@ -10,7 +10,7 @@ export EPISODE=($(sqlite3 $SQLITE_DB \
     JOIN ZMTPODCAST p ON e.ZPODCAST = p.Z_PK
     WHERE p.ZTITLE LIKE '%${PODCAST_TITLE}%'
     ORDER BY e.ZPUBDATE DESC
-    LIMIT 7")) # store seven most recent episodes in an array
+    LIMIT 7")) # store filenames of seven most recent episodes in an array
 
 export PODCASTS="$HOME/Library/Group Containers/243LU875E5.groups.com.apple.podcasts/Library/Cache"
 

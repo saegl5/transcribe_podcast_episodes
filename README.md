@@ -39,7 +39,7 @@ export EPISODE=$(sqlite3 $SQLITE_DB \
     JOIN ZMTPODCAST p ON e.ZPODCAST = p.Z_PK
     WHERE p.ZTITLE LIKE '%${PODCAST_TITLE}%'
     ORDER BY e.ZPUBDATE DESC
-    LIMIT 1") # store the most recent episode
+    LIMIT 1") # store filename of the most recent episode
 
 export PODCASTS="$HOME/Library/Group Containers/243LU875E5.groups.com.apple.podcasts/Library/Cache"
 
@@ -69,7 +69,7 @@ export EPISODE=($(sqlite3 $SQLITE_DB \
     JOIN ZMTPODCAST p ON e.ZPODCAST = p.Z_PK
     WHERE p.ZTITLE LIKE '%${PODCAST_TITLE}%'
     ORDER BY e.ZPUBDATE DESC
-    LIMIT 7")) # store seven most recent episodes in an array
+    LIMIT 7")) # store filenames of seven most recent episodes in an array
 
 for index in {1..7}; do
     whisper-cli \
