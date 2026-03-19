@@ -123,3 +123,8 @@ done
 ```
 
 For the ZSH script with optional content included, [click here &#128279;](./transcribe.sh). Save it, and run it: `zsh transcribe.sh`
+
+## Related
+
+* [Use YouTube API to download transcription of videos for securities trading opportunities (Linux/macOS) &#128279;](https://github.com/yuchild/youtube_transcripts)
+* [Transcribe YouTube videos using yt-dlp and whisper-cpp (macOS) &#128279;](https://gist.github.com/saegl5/f5cb33b667c141a262cc13a19c86528b)
