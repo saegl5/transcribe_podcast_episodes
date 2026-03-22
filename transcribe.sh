@@ -35,12 +35,12 @@ for index in {1..7}; do
     fi
 done
 
-mkdir -p ./archived-transcripts
+mkdir -p ./archived
 
 for file in *.txt; do
     base=$(basename $file .txt)
     if [[ ! $EPISODE[*] =~ $base ]]; then
-        mv $file ./archived-transcripts
+        mv $file ./archived
     fi
 done
 
