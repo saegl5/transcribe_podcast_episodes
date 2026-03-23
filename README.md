@@ -109,6 +109,10 @@ for index in {1..7}; do
 done
 ```
 
+Check for corrupted transcripts.
+
+> Coming soon, but basically we check each text file for tokens. If the tokens are found, users are informed about it and what to do. I just need to refine the script a little.
+
 Archive older episodes.
 
 ```
