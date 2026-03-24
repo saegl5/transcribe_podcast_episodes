@@ -43,6 +43,7 @@ for file in *.txt; do
             FROM ZMTEPISODE
             WHERE ZUUID = '${base}'")
         echo "Transcript for episode \"$title\" is corrupted. Re-download the episode to re-cache it, and then re-transcribe it."
+        mv $file $file.old
         return
     fi
 done
