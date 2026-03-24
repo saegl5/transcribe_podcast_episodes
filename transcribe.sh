@@ -36,8 +36,13 @@ for index in {1..7}; do
 done
 
 for file in *.txt; do
-    if grep --quiet ">> >>" $file; then 
-        echo $file 'is corrupted. Re-download its episode to re-cache the episode, then re-transcribe.'
+    if grep --quiet ">> >>" $file; then
+        base=$(basename $file .mp3.txt)
+        title=$(sqlite3 $SQLITE_DB \
+            "SELECT ZTITLE
+            FROM ZMTEPISODE
+            WHERE ZUUID = '${base}'")
+        echo "Transcript for episode \"$title\" is corrupted. Re-download the episode to re-cache it, and then re-transcribe it."
         return
     fi
 done
