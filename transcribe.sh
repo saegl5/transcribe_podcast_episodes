@@ -35,6 +35,13 @@ for index in {1..7}; do
     fi
 done
 
+for file in *.txt; do
+    if grep --quiet ">> >>" $file; then 
+        echo $file 'is corrupted. Re-download its episode to re-cache the episode, then re-transcribe.'
+        return
+    fi
+done
+
 mkdir -p ./archived
 
 for file in *.txt; do
