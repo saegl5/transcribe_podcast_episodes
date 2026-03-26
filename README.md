@@ -89,7 +89,7 @@ open --background -a "Podcasts"
 
 for index in {1..7}; do
     if [[ ! -f $PODCASTS/$EPISODE[$index] ]]; then \
-        echo "Error: "$EPISODE[$index] " not found! Make sure the episode is cached in the Podcasts app: Try launching the app first, otherwise download the episode to cache it."
+        echo "Error: "$EPISODE[$index] " not found! Make sure the episode is cached in the Podcasts app: Wait a moment to retry, otherwise download the episode to cache it."
         return
     fi
 done
