@@ -16,6 +16,8 @@ export PODCASTS="$HOME/Library/Group Containers/243LU875E5.groups.com.apple.podc
 
 export GGML_METAL_PATH_RESOURCES="$(brew --prefix whisper-cpp)/share/whisper-cpp" # use Metal for GPU acceleration
 
+open --background -a "Podcasts" # launch silently to help ensure episodes are cached
+
 for index in {1..7}; do
     if [[ ! -f $PODCASTS/$EPISODE[$index] ]]; then \
         echo "Error: "$EPISODE[$index] " not found! Make sure the episode is cached in the Podcasts app: Try launching the app first, otherwise download the episode to cache it."
