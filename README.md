@@ -87,6 +87,8 @@ Check and ensure that episodes are cached.
 ```
 open --background -a "Podcasts"
 
+sleep 5
+
 for index in {1..7}; do
     if [[ ! -f $PODCASTS/$EPISODE[$index] ]]; then \
         base=$(basename $EPISODE[$index] .mp3)
@@ -94,7 +96,7 @@ for index in {1..7}; do
             "SELECT ZTITLE
             FROM ZMTEPISODE
             WHERE ZUUID = '${base}'")
-        echo "Error: "$EPISODE[$index]" not found! Make sure the episode \"$title\" is cached in the Podcasts app: Wait a moment to retry, otherwise download the episode to cache it."
+        echo "Error: "$EPISODE[$index]" not found! Make sure the episode \"$title\" is cached in the Podcasts app: Wait a moment longer to retry, otherwise download the episode to cache it."
         return
     fi
 done

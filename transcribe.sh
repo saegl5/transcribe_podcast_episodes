@@ -18,6 +18,9 @@ export GGML_METAL_PATH_RESOURCES="$(brew --prefix whisper-cpp)/share/whisper-cpp
 
 open --background -a "Podcasts" # launch silently to help ensure episodes are cached
 
+echo "One moment..."
+sleep 5 # wait a moment to allow the Podcasts app to try caching episodes
+
 for index in {1..7}; do
     if [[ ! -f $PODCASTS/$EPISODE[$index] ]]; then \
         base=$(basename $EPISODE[$index] .mp3)
@@ -25,7 +28,7 @@ for index in {1..7}; do
             "SELECT ZTITLE
             FROM ZMTEPISODE
             WHERE ZUUID = '${base}'")
-        echo "Error: "$EPISODE[$index]" not found! Make sure the episode \"$title\" is cached in the Podcasts app: Wait a moment to retry, otherwise download the episode to cache it."
+        echo "Error: "$EPISODE[$index]" not found! Make sure the episode \"$title\" is cached in the Podcasts app: Wait a moment longer to retry, otherwise download the episode to cache it."
         return
     fi
 done
