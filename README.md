@@ -89,7 +89,12 @@ open --background -a "Podcasts"
 
 for index in {1..7}; do
     if [[ ! -f $PODCASTS/$EPISODE[$index] ]]; then \
-        echo "Error: "$EPISODE[$index] " not found! Make sure the episode is cached in the Podcasts app: Wait a moment to retry, otherwise download the episode to cache it."
+        base=$(basename $EPISODE[$index] .mp3)
+        title=$(sqlite3 $SQLITE_DB \
+            "SELECT ZTITLE
+            FROM ZMTEPISODE
+            WHERE ZUUID = '${base}'")
+        echo "Error: "$EPISODE[$index]" not found! Make sure the episode \"$title\" is cached in the Podcasts app: Wait a moment to retry, otherwise download the episode to cache it."
         return
     fi
 done
