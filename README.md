@@ -10,13 +10,13 @@ Script for transcribing Apple Podcasts episodes
 
 Install packages:
 
-```
+```zsh
 brew install whisper-cpp ffmpeg
 ```
 
 Download Whisper model: (example)
 
-```
+```zsh
 mkdir -p $HOME/whisper-models
 
 curl --location https://huggingface.co/ggerganov/whisper.cpp/resolve/main/ggml-small.en.bin \
@@ -26,7 +26,7 @@ curl --location https://huggingface.co/ggerganov/whisper.cpp/resolve/main/ggml-s
 
 ## Z Shell Script
 
-```
+```zsh
 #!/bin/zsh
 
 export PODCAST_TITLE="Halftime Report" # example
@@ -62,7 +62,7 @@ Be patient! Once the process is completed, the text file will be located in your
 
 Transcribe multiple episodes at once (e.g., seven)
 
-```
+```zsh
 export EPISODE=($(sqlite3 $SQLITE_DB \
     "SELECT e.ZUUID || '.mp3'
     FROM ZMTEPISODE e
@@ -84,7 +84,7 @@ done
 
 Check and ensure that episodes are cached.
 
-```
+```zsh
 open --background -a "Podcasts"
 
 sleep 5
@@ -104,7 +104,7 @@ done
 
 Skip episodes you have already transcribed.
 
-```
+```zsh
 for index in {1..7}; do
     if [[ ! -f $EPISODE[$index].txt ]]; then \
         whisper-cli \
@@ -120,7 +120,7 @@ done
 
 Check for corrupted transcripts.
 
-```
+```zsh
 for file in *.txt; do
     if grep --quiet ">> >>" $file; then
         base=$(basename $file .mp3.txt)
@@ -137,7 +137,7 @@ done
 
 Make transcripts easier to identify.
 
-```
+```zsh
 for index in {1..7}; do
     base=$(basename $EPISODE[$index] .mp3)
     title=$(sqlite3 $SQLITE_DB \
@@ -151,7 +151,7 @@ done
 
 Archive older episodes.
 
-```
+```zsh
 mkdir -p ./archived
 
 for file in *.txt; do
