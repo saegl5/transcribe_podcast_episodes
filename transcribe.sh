@@ -45,16 +45,6 @@ for index in {1..7}; do
     fi
 done
 
-for index in {1..7}; do
-    base=$(basename $EPISODE[$index] .mp3)
-    title=$(sqlite3 $SQLITE_DB \
-        "SELECT ZTITLE
-        FROM ZMTEPISODE
-        WHERE ZUUID = '${base}'")
-
-    mv $EPISODE[$index].txt "${title//\//-}".txt # replace slashes in title with dashes to avoid issues in filenames
-done
-
 for file in *.txt; do
     if grep --quiet ">> >>" $file; then
         base=$(basename $file .mp3.txt)
@@ -66,6 +56,16 @@ for file in *.txt; do
         mv $file $file.old
         return
     fi
+done
+
+for index in {1..7}; do
+    base=$(basename $EPISODE[$index] .mp3)
+    title=$(sqlite3 $SQLITE_DB \
+        "SELECT ZTITLE
+        FROM ZMTEPISODE
+        WHERE ZUUID = '${base}'")
+
+    mv $EPISODE[$index].txt "${title//\//-}".txt # replace slashes in title with dashes to avoid issues in filenames
 done
 
 mkdir -p ./archived
