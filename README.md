@@ -53,7 +53,7 @@ whisper-cli \
     --model $HOME/whisper-models/ggml-small.en.bin \
     --vad \
     --vad-model $HOME/whisper-models/ggml-silero-v6.2.0.bin \
-    --vad-threshold 0.6 \
+    --vad-threshold 0.1 \
     --file $PODCASTS/$EPISODE \
     --output-txt \
     --no-timestamps
@@ -83,7 +83,7 @@ for index in {1..7}; do
         --model $HOME/whisper-models/ggml-small.en.bin \
         --vad \
         --vad-model $HOME/whisper-models/ggml-silero-v6.2.0.bin \
-        --vad-threshold 0.6 \
+        --vad-threshold 0.1 \
         --file $PODCASTS/$EPISODE[$index] \
         --output-txt \
         --no-timestamps
@@ -126,7 +126,7 @@ for index in {1..7}; do
             --model $HOME/whisper-models/ggml-small.en.bin \
             --vad \
             --vad-model $HOME/whisper-models/ggml-silero-v6.2.0.bin \
-            --vad-threshold 0.6 \
+            --vad-threshold 0.1 \
             --file $PODCASTS/$EPISODE[$index] \
             --output-txt \
             --no-timestamps
