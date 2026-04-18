@@ -42,15 +42,17 @@ for index in {1..7}; do
             --no-timestamps
 
         mv $PODCASTS/$EPISODE[$index].txt .
-
-        base=$(basename $EPISODE[$index] .mp3)
-        title=$(sqlite3 $SQLITE_DB \
-            "SELECT ZTITLE
-            FROM ZMTEPISODE
-            WHERE ZUUID = '${base}'")
-
-        mv $EPISODE[$index].txt "${title//\//-}".txt # replace slashes in title with dashes to avoid issues in filenames
     fi
+done
+
+for index in {1..7}; do
+    base=$(basename $EPISODE[$index] .mp3)
+    title=$(sqlite3 $SQLITE_DB \
+        "SELECT ZTITLE
+        FROM ZMTEPISODE
+        WHERE ZUUID = '${base}'")
+
+    mv $EPISODE[$index].txt "${title//\//-}".txt # replace slashes in title with dashes to avoid issues in filenames
 done
 
 for file in *.txt; do
