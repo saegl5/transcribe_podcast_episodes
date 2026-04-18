@@ -73,6 +73,7 @@ mkdir -p ./archived
 for file in *.txt; do
     base_file=$(basename $file .txt)
     found=false
+    
     for index in {1..7}; do
         base_episode=$(basename $EPISODE[$index] .mp3)
         title_episode=$(sqlite3 $SQLITE_DB \
