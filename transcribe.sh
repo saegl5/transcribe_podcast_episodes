@@ -34,7 +34,12 @@ for index in {1..7}; do
 done
 
 for index in {1..7}; do
-    if [[ ! -f $EPISODE[$index].txt ]]; then \
+    base=$(basename $EPISODE[$index] .mp3)
+    title=$(sqlite3 $SQLITE_DB \
+        "SELECT ZTITLE
+        FROM ZMTEPISODE
+        WHERE ZUUID = '${base}'")
+    if [[ ! -f "${title//\//-}".txt ]]; then \
         whisper-cli \
             --model $HOME/whisper-models/ggml-small.en.bin \
             --file $PODCASTS/$EPISODE[$index] \
