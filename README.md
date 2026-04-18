@@ -14,15 +14,19 @@ Install packages:
 brew install whisper-cpp ffmpeg
 ```
 
-Download Whisper model: (example)
+Download Whisper and Voice Activity Detection model: (example)
 
 ```zsh
 mkdir -p $HOME/whisper-models
 
 curl --location https://huggingface.co/ggerganov/whisper.cpp/resolve/main/ggml-small.en.bin \
     --output $HOME/whisper-models/ggml-small.en.bin
+    
+curl --location https://huggingface.co/ggml-org/whisper-vad/resolve/main/ggml-silero-v6.2.0.bin \
+    --output $HOME/whisper-models/ggml-silero-v6.2.0.bin
+
 ```
-(Consult [ggerganov/whisper.cpp &#128279;](https://huggingface.co/ggerganov/whisper.cpp/tree/main) for additional models.)
+(Consult [ggerganov/whisper.cpp &#128279;](https://huggingface.co/ggerganov/whisper.cpp/tree/main) and [ggml-org/whisper-vad &#128279;](https://huggingface.co/ggml-org/whisper-vad/tree/main) for additional models.)
 
 ## Z Shell Script
 
@@ -47,6 +51,9 @@ export GGML_METAL_PATH_RESOURCES="$(brew --prefix whisper-cpp)/share/whisper-cpp
 
 whisper-cli \
     --model $HOME/whisper-models/ggml-small.en.bin \
+    --vad \
+    --vad-model $HOME/whisper-models/ggml-silero-v6.2.0.bin \
+    --vad-threshold 0.6 \
     --file $PODCASTS/$EPISODE \
     --output-txt \
     --no-timestamps
@@ -74,6 +81,9 @@ export EPISODE=($(sqlite3 $SQLITE_DB \
 for index in {1..7}; do
     whisper-cli \
         --model $HOME/whisper-models/ggml-small.en.bin \
+        --vad \
+        --vad-model $HOME/whisper-models/ggml-silero-v6.2.0.bin \
+        --vad-threshold 0.6 \
         --file $PODCASTS/$EPISODE[$index] \
         --output-txt \
         --no-timestamps
@@ -114,6 +124,9 @@ for index in {1..7}; do
     if [[ ! -f "${title//\//-}".txt ]]; then \
         whisper-cli \
             --model $HOME/whisper-models/ggml-small.en.bin \
+            --vad \
+            --vad-model $HOME/whisper-models/ggml-silero-v6.2.0.bin \
+            --vad-threshold 0.6 \
             --file $PODCASTS/$EPISODE[$index] \
             --output-txt \
             --no-timestamps
@@ -162,7 +175,7 @@ mkdir -p ./archived
 for file in *.txt; do
     base_file=$(basename $file .txt)
     found=false
-    
+
     for index in {1..7}; do
         base_episode=$(basename $EPISODE[$index] .mp3)
         title_episode=$(sqlite3 $SQLITE_DB \

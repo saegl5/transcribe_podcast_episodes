@@ -42,6 +42,9 @@ for index in {1..7}; do
     if [[ ! -f "${title//\//-}".txt ]]; then \
         whisper-cli \
             --model $HOME/whisper-models/ggml-small.en.bin \
+            --vad \
+            --vad-model $HOME/whisper-models/ggml-silero-v6.2.0.bin \
+            --vad-threshold 0.6 \
             --file $PODCASTS/$EPISODE[$index] \
             --output-txt \
             --no-timestamps
@@ -78,7 +81,7 @@ mkdir -p ./archived
 for file in *.txt; do
     base_file=$(basename $file .txt)
     found=false
-    
+
     for index in {1..7}; do
         base_episode=$(basename $EPISODE[$index] .mp3)
         title_episode=$(sqlite3 $SQLITE_DB \
