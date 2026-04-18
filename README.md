@@ -155,8 +155,21 @@ Archive older episodes.
 mkdir -p ./archived
 
 for file in *.txt; do
-    base=$(basename $file .txt)
-    if [[ ! $EPISODE[*] =~ $base ]]; then
+    base_file=$(basename $file .txt)
+    found=false
+    for index in {1..7}; do
+        base_episode=$(basename $EPISODE[$index] .mp3)
+        title_episode=$(sqlite3 $SQLITE_DB \
+            "SELECT ZTITLE
+            FROM ZMTEPISODE
+            WHERE ZUUID = '${base_episode}'")
+        if [[ "${title_episode//\//-}" =~ "$base_file" ]]; then
+            found=true
+            break
+        fi
+    done
+
+    if [[ $found == false ]]; then
         mv $file ./archived
     fi
 done
