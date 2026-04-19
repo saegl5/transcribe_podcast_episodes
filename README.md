@@ -82,6 +82,8 @@ for index in {1..7}; do
 done
 ```
 
+> Subsequent options assume one transcribes multiple episodes at once. This is because I found that transcribing multiple episodes to be more useful.
+
 Check and ensure that episodes are cached.
 
 ```zsh
