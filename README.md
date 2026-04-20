@@ -152,7 +152,9 @@ for index in {1..7}; do
         FROM ZMTEPISODE
         WHERE ZUUID = '${base}'")
 
-    mv $EPISODE[$index].txt "${title//\//-}".txt # replace slashes in title with dashes to avoid issues in filenames
+    if [[ -f $EPISODE[$index].txt ]]; then
+        mv $EPISODE[$index].txt "${title//\//-}".txt # replace slashes in title with dashes to avoid issues in filenames
+    fi
 done
 ```
 
