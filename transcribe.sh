@@ -101,4 +101,8 @@ for file in *.txt; do
     fi
 done
 
+for file in *.old; do
+    mv $file ./archived
+done
+
 echo "\nDone! Now, you can utilize https://chatgpt.com, https://claude.ai, https://gemini.google.com or another AI assistant to summarize the transcript."

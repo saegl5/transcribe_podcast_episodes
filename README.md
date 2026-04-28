@@ -183,6 +183,10 @@ for file in *.txt; do
         mv $file ./archived
     fi
 done
+
+for file in *.old; do
+    mv $file ./archived
+done
 ```
 
 Mitigate potential hallucinations.
