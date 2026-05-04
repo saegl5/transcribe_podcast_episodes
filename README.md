@@ -89,7 +89,7 @@ Check and ensure that episodes are cached.
 ```zsh
 open --background -a "Podcasts"
 
-sleep 5
+sleep 10
 
 for index in {1..7}; do
     if [[ ! -f $PODCASTS/$EPISODE[$index] ]]; then \

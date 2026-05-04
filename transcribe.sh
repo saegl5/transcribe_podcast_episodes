@@ -19,7 +19,7 @@ export GGML_METAL_PATH_RESOURCES="$(brew --prefix whisper-cpp)/share/whisper-cpp
 open --background -a "Podcasts" # launch silently to help ensure episodes are cached
 
 echo "One moment..."
-sleep 5 # wait a moment to allow the Podcasts app to try caching episodes
+sleep 10 # wait a moment to allow the Podcasts app to try caching episodes
 
 for index in {1..7}; do
     if [[ ! -f $PODCASTS/$EPISODE[$index] ]]; then \
