@@ -101,7 +101,7 @@ for file in *.txt; do
     fi
 done
 
-for file in *.old; do
+for file in *.old(N); do
     mv $file ./archived
 done
 
