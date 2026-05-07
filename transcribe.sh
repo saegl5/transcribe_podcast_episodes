@@ -90,7 +90,7 @@ for file in *.txt; do
             "SELECT ZTITLE
             FROM ZMTEPISODE
             WHERE ZUUID = '${base_episode}'")
-        if [[ "${title_episode//\//-}" =~ "$base_file" ]]; then
+        if [[ "${title_episode//\//-}" =~ "${base_file//\?/\\?}" ]]; then
             found=true
             break
         fi
