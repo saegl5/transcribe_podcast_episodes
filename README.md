@@ -185,7 +185,7 @@ for file in *.txt; do
 done
 
 for file in *.old(N); do
-    mv $file ./archived
+    mv $file ./archived # N permits nullglob, so if there are no .old files, it won't try to move a file named "*.old"
 done
 ```
 

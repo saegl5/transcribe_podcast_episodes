@@ -102,7 +102,7 @@ for file in *.txt; do
 done
 
 for file in *.old(N); do
-    mv $file ./archived
+    mv $file ./archived # N permits nullglob, so if there are no .old files, it won't try to move a file named "*.old"
 done
 
 echo "\nDone! Now, you can utilize https://chatgpt.com, https://claude.ai, https://gemini.google.com or another AI assistant to summarize the transcript."
