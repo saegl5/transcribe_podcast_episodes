@@ -41,7 +41,7 @@ for index in {1..7}; do
         WHERE ZUUID = '${base}'")
     if [[ ! -f "${title//\//-}".txt ]]; then \
         whisper-cli \
-            --model $HOME/whisper-models/ggml-small.en.bin \
+            --model $HOME/whisper-models/ggml-medium.en.bin \
             --vad \
             --vad-model $HOME/whisper-models/ggml-silero-v6.2.0.bin \
             --vad-threshold 0.1 \

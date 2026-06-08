@@ -19,8 +19,8 @@ Download Whisper model: (example)
 ```zsh
 mkdir -p $HOME/whisper-models
 
-curl --location https://huggingface.co/ggerganov/whisper.cpp/resolve/main/ggml-small.en.bin \
-    --output $HOME/whisper-models/ggml-small.en.bin
+curl --location https://huggingface.co/ggerganov/whisper.cpp/resolve/main/ggml-medium.en.bin \
+    --output $HOME/whisper-models/ggml-medium.en.bin
 ```
 (Consult [ggerganov/whisper.cpp &#128279;](https://huggingface.co/ggerganov/whisper.cpp/tree/main) for additional models.)
 
@@ -46,7 +46,7 @@ export PODCASTS="$HOME/Library/Group Containers/243LU875E5.groups.com.apple.podc
 export GGML_METAL_PATH_RESOURCES="$(brew --prefix whisper-cpp)/share/whisper-cpp" # use Metal for GPU acceleration
 
 whisper-cli \
-    --model $HOME/whisper-models/ggml-small.en.bin \
+    --model $HOME/whisper-models/ggml-medium.en.bin \
     --file $PODCASTS/$EPISODE \
     --output-txt \
     --no-timestamps
@@ -73,7 +73,7 @@ export EPISODE=($(sqlite3 $SQLITE_DB \
 
 for index in {1..7}; do
     whisper-cli \
-        --model $HOME/whisper-models/ggml-small.en.bin \
+        --model $HOME/whisper-models/ggml-medium.en.bin \
         --file $PODCASTS/$EPISODE[$index] \
         --output-txt \
         --no-timestamps
@@ -115,7 +115,7 @@ for index in {1..7}; do
         WHERE ZUUID = '${base}'")
     if [[ ! -f "${title//\//-}".txt ]]; then \
         whisper-cli \
-            --model $HOME/whisper-models/ggml-small.en.bin \
+            --model $HOME/whisper-models/ggml-medium.en.bin \
             --file $PODCASTS/$EPISODE[$index] \
             --output-txt \
             --no-timestamps
@@ -203,7 +203,7 @@ Add VAD flags and values:
 
 ```zsh
 whisper-cli \
-    --model $HOME/whisper-models/ggml-small.en.bin \
+    --model $HOME/whisper-models/ggml-medium.en.bin \
     --vad \
     --vad-model $HOME/whisper-models/ggml-silero-v6.2.0.bin \
     --vad-threshold 0.1 \
