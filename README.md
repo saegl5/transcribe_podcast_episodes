@@ -206,7 +206,7 @@ whisper-cli \
     --model $HOME/whisper-models/ggml-medium.en.bin \
     --vad \
     --vad-model $HOME/whisper-models/ggml-silero-v6.2.0.bin \
-    --vad-threshold 0.1 \
+    --vad-threshold 0.2 \
     --file $PODCASTS/$EPISODE[$index] \
     --output-txt \
     --no-timestamps
